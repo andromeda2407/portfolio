@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-05
 **Owner:** Munaib PC
-**Status:** Approved — pending implementation plan
+**Status:** ✅ Shipped — live at https://portfolio-lime-rho-78.vercel.app/
 
 ## Goal
 

@@ -10,7 +10,7 @@ generalist ("I build apps, websites & platforms").
 **Repo:** `/Users/munaib/Documents/personal_projects/Portfolio` ·
 **GitHub:** git@github.com:andromeda2407/portfolio.git · deployed on **Vercel**.
 
-**Live URL:** _<add your Vercel URL here>_
+**Live URL:** https://portfolio-lime-rho-78.vercel.app/
 
 ---
 
