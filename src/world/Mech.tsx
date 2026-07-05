@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useWorldStore } from "./store";
+import { prefersReducedMotion } from "./motion";
 
 const BODY = "#9fb4c0";
 const LIMB = "#7f95a2";
@@ -16,6 +17,7 @@ export function Mech() {
   const armL = useRef<THREE.Group>(null);
   const armR = useRef<THREE.Group>(null);
   const walk = useRef(0);
+  const reduced = prefersReducedMotion();
 
   useFrame((_, delta) => {
     const { phase } = useWorldStore.getState();
@@ -26,7 +28,7 @@ export function Mech() {
     if (legR.current) legR.current.rotation.x = -s * 0.5;
     if (armL.current) armL.current.rotation.x = -s * 0.4;
     if (armR.current) armR.current.rotation.x = s * 0.4;
-    if (bob.current) bob.current.position.y = Math.abs(Math.sin(walk.current)) * 0.12;
+    if (bob.current) bob.current.position.y = reduced ? 0 : Math.abs(Math.sin(walk.current)) * 0.12;
   });
 
   return (

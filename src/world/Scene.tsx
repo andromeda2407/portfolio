@@ -9,6 +9,7 @@ import { Beacon } from "./Beacon";
 import { Environment } from "./Environment";
 import { worldSections, getSection } from "./sections";
 import { useWorldStore } from "./store";
+import { prefersReducedMotion } from "./motion";
 
 const ORIGIN = new THREE.Vector3(0, 0, 0);
 const dest = new THREE.Vector3();
@@ -43,6 +44,7 @@ function moveToward(obj: THREE.Group, target: THREE.Vector3, dt: number, speed: 
 export function Scene() {
   const mechRef = useRef<THREE.Group>(null);
   const { camera } = useThree();
+  const reduced = prefersReducedMotion();
 
   useFrame((_, delta) => {
     const dt = Math.min(delta, 0.05);
@@ -77,7 +79,7 @@ export function Scene() {
       lookGoal.set(m.x, 2.5, m.z);
     }
 
-    const k = 1 - Math.pow(0.0015, dt);
+    const k = reduced ? 1 : 1 - Math.pow(0.0015, dt);
     camera.position.lerp(camGoal, k);
     lookCurrent.lerp(lookGoal, k);
     camera.lookAt(lookCurrent);
