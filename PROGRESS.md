@@ -26,7 +26,7 @@ Each piece below is its own spec → plan → build cycle.
 | 2 | **Business website** (e.g. restaurant/salon with booking) | ⬜ Not started |
 | 3 | **Analytics / reporting dashboard** | ⬜ Not started |
 | 4 | **AI-powered app** (niche AI assistant/chatbot) | ⬜ Not started |
-| 5 | **3D "giant world"** showpiece at `/world` (start 3D-lite) | ⬜ Stub only (coming-soon page) |
+| 5 | **3D "Mech Pilot" world** at `/world` | 🚧 Spec'd — building next |
 
 ---
 
@@ -45,7 +45,16 @@ Each piece below is its own spec → plan → build cycle.
 
 ---
 
-## ▶️ Next up: Piece 1 — GarageConnect (flagship)
+## 🚧 In progress: Piece 5 — 3D "Mech Pilot" world
+
+Spec approved: `docs/specs/2026-07-05-3d-world-mech-pilot-design.md`. Next step is the
+implementation plan, then build. Concept: pilot a giant mech across a neon-grid world;
+tap a beacon (Projects/Career/Skills/Contact) → mech walks there → camera flies into a
+docking bay → HUD panel shows that section's real content. Pilot = Munaib's hooded Ready
+Player Me avatar. Built with react-three-fiber at `/world`, client-side only. **Needs from
+Munaib: a Ready Player Me `.glb` avatar URL (hoodie outfit).**
+
+## ▶️ Also queued: Piece 1 — GarageConnect (flagship)
 
 Not started. When resuming: brainstorm requirements → write spec → write plan → build.
 It's a two-sided marketplace: garages sign up; drivers search for nearby mechanics for
