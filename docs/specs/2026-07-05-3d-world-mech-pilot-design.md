@@ -76,9 +76,9 @@ SectionPanel reads `activeSection` and pulls from `src/data/*` → Exit sets pha
   keeps working.
 - **No WebGL / very low-power device** → a clean static fallback page ("3D world needs a
   modern browser") with a link to the classic hub — never a black screen.
-- **`prefers-reduced-motion`** → damp camera moves and idle bob.
-- **Mobile** → same tap controls; a **"reduce effects"** toggle lowers pixel ratio and
-  prop count.
+- **`prefers-reduced-motion`** → lower pixel ratio and damp camera moves / idle bob.
+- **Mobile** → same tap controls (a manual "reduce effects" toggle is deferred; the
+  reduced-motion handling above already lowers the pixel ratio).
 
 ## Testing
 
@@ -94,8 +94,9 @@ SectionPanel reads `activeSection` and pulls from `src/data/*` → Exit sets pha
 **In (v1):** neon-grid world, tap-to-move mech, RPM avatar pilot, HUD, four beacons + one
 reusable docking-bay treatment, real content panels, all fallbacks above.
 
-**Out (later):** audio (deferred — muted worlds are fine and dodge autoplay issues); unique
-per-section dioramas; free-roam controls; richer bay art; downloaded GLB mech/buildings.
+**Out (later):** audio (deferred — muted worlds are fine and dodge autoplay issues); a
+manual "reduce effects" toggle; unique per-section dioramas; free-roam controls; richer
+bay art; downloaded GLB mech/buildings.
 
 ## Success criteria
 
