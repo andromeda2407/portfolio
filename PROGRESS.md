@@ -26,7 +26,7 @@ Each piece below is its own spec → plan → build cycle.
 | 2 | **Business website** (e.g. restaurant/salon with booking) | ⬜ Not started |
 | 3 | **Analytics / reporting dashboard** | ⬜ Not started |
 | 4 | **AI-powered app** (niche AI assistant/chatbot) | ⬜ Not started |
-| 5 | **3D "Mech Pilot" world** at `/world` | 🚧 Spec'd — building next |
+| 5 | **3D "Mech Pilot" world** at `/world` | ✅ Built & merged — needs local visual check + avatar |
 
 ---
 
@@ -45,15 +45,22 @@ Each piece below is its own spec → plan → build cycle.
 
 ---
 
-## 🚧 In progress: Piece 5 — 3D "Mech Pilot" world
+## ✅ Piece 5 — 3D "Mech Pilot" world — BUILT
 
-Spec approved: `docs/specs/2026-07-05-3d-world-mech-pilot-design.md`. Next step is the
-implementation plan, then build. Concept: pilot a giant mech across a neon-grid world;
-tap a beacon (Projects/Career/Skills/Contact) → mech walks there → camera flies into a
-docking bay → HUD panel shows that section's real content. Pilot = Munaib's hooded
-selfie-derived avatar. Built with react-three-fiber at `/world`, client-side only. **Needs
-from Munaib: a selfie-derived `.glb` avatar (hoodie) from Avaturn (avaturn.me) or
-MetaPerson — Ready Player Me shut down 2026-01-31. A capsule fallback is used until then.**
+Built with react-three-fiber at `/world`, client-side only, merged to `master`. 30 passing
+tests, clean build/tsc/lint. Concept: pilot a giant mech across a neon-grid world; tap a
+beacon (Projects/Career/Skills/Contact) → mech walks there → camera flies into a docking
+bay → HUD panel shows that section's real content. Spec:
+`docs/specs/2026-07-05-3d-world-mech-pilot-design.md` · Plan:
+`docs/plans/2026-07-05-3d-world-mech-pilot.md`.
+
+**Two things left for Munaib:**
+1. **Visual check** — automated tests can't see the 3D. Run `npm run dev` and open
+   `http://localhost:3000/world` to confirm the mech renders, tap-to-walk works, and the
+   camera fly-in + HUD panels feel right.
+2. **Add your avatar** — export a hoodie `.glb` from Avaturn (avaturn.me) or MetaPerson
+   (Ready Player Me shut down 2026-01-31), save to `public/avatar/pilot.glb`, and set
+   `AVATAR_ENABLED = true` in `src/world/config.ts`. Until then a hooded capsule stands in.
 
 ## ▶️ Also queued: Piece 1 — GarageConnect (flagship)
 
