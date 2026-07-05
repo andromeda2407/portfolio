@@ -23,8 +23,11 @@ lightweight; this heavier 3D experience lives isolated at `/world` and never slo
 - **Arrival action:** camera flies the mech into the beacon's **docking bay**, then a HUD
   panel renders that section's content ("fly into an in-world 3D scene", done leanly via a
   camera move + one reusable bay treatment + HUD — not four bespoke dioramas).
-- **Player likeness:** a Ready Player Me `.glb` avatar (Munaib, hoodie outfit) as the
-  pilot. Munaib generates the avatar; its URL lives in one config constant for easy swap.
+- **Player likeness:** a selfie-derived `.glb` avatar (Munaib, hoodie outfit) as the
+  pilot. Source: **Avaturn** (avaturn.me) or **MetaPerson by Avatar SDK** — both turn a
+  selfie into a GLB with outfits. (Ready Player Me was the original pick but shut down on
+  2026-01-31.) The `.glb` path/URL lives in one config constant for easy swap, so the
+  source is interchangeable.
 - **Build approach (A — "lean showpiece, phased"):** mech built from primitives (no asset
   licensing), reuse existing hub data, ship a real v1, deepen bays later.
 - **Beacons / sections:** `Projects`, `Career`, `Skills`, `Contact` — mirroring the hub.
@@ -106,4 +109,5 @@ per-section dioramas; free-roam controls; richer bay art; downloaded GLB mech/bu
 ## Dependencies
 
 - `three`, `@react-three/fiber`, `@react-three/drei`, and a small state lib (`zustand`).
-- A Ready Player Me avatar `.glb` URL (Munaib to provide; placeholder until then).
+- A selfie-derived avatar `.glb` (hoodie) from Avaturn or MetaPerson (Munaib to provide;
+  placeholder + capsule fallback used until then).

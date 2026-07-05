@@ -50,9 +50,10 @@ Each piece below is its own spec → plan → build cycle.
 Spec approved: `docs/specs/2026-07-05-3d-world-mech-pilot-design.md`. Next step is the
 implementation plan, then build. Concept: pilot a giant mech across a neon-grid world;
 tap a beacon (Projects/Career/Skills/Contact) → mech walks there → camera flies into a
-docking bay → HUD panel shows that section's real content. Pilot = Munaib's hooded Ready
-Player Me avatar. Built with react-three-fiber at `/world`, client-side only. **Needs from
-Munaib: a Ready Player Me `.glb` avatar URL (hoodie outfit).**
+docking bay → HUD panel shows that section's real content. Pilot = Munaib's hooded
+selfie-derived avatar. Built with react-three-fiber at `/world`, client-side only. **Needs
+from Munaib: a selfie-derived `.glb` avatar (hoodie) from Avaturn (avaturn.me) or
+MetaPerson — Ready Player Me shut down 2026-01-31. A capsule fallback is used until then.**
 
 ## ▶️ Also queued: Piece 1 — GarageConnect (flagship)
 
