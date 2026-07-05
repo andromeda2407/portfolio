@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Fallback() {
   return (
     <main
@@ -19,9 +21,9 @@ export function Fallback() {
         Your browser or device can&apos;t run WebGL. No problem — everything is on the main
         site.
       </p>
-      <a href="/" style={{ marginTop: 24, color: "#35d07f" }}>
+      <Link href="/" style={{ marginTop: 24, color: "#35d07f" }}>
         ← Back to portfolio
-      </a>
+      </Link>
     </main>
   );
 }

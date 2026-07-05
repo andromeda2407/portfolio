@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useWorldStore } from "./store";
 import { SectionPanel } from "./SectionPanel";
 
@@ -29,12 +30,12 @@ export function Hud() {
       </div>
 
       <div style={{ position: "absolute", bottom: 12, left: 12, display: "flex", gap: 16, pointerEvents: "auto" }}>
-        <a href="/" style={{ color: "#35d07f", fontSize: 12, textDecoration: "none" }}>
+        <Link href="/" style={{ color: "#35d07f", fontSize: 12, textDecoration: "none" }}>
           ← Back to portfolio
-        </a>
-        <a href="/#projects" style={{ color: "#5f7684", fontSize: 12, textDecoration: "none" }}>
+        </Link>
+        <Link href="/#projects" style={{ color: "#5f7684", fontSize: 12, textDecoration: "none" }}>
           skip to classic site
-        </a>
+        </Link>
       </div>
 
       {phase === "idle" && (

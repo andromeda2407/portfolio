@@ -31,6 +31,9 @@ const World = dynamic(() => import("./World").then((m) => m.World), {
 export function WorldClient() {
   const [webgl, setWebgl] = useState<null | boolean>(null);
   useEffect(() => {
+    // Intentional: WebGL detection must run after mount (needs a real canvas),
+    // so the boot screen shows until the client-side check resolves.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setWebgl(isWebGLAvailable());
   }, []);
 
