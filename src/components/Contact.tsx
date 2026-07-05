@@ -1,8 +1,49 @@
+"use client";
+
+import { useState } from "react";
 import { profile } from "@/data/profile";
 
-const FORMSPREE_ID = "your-form-id"; // TODO: replace with real Formspree form id
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzjlkdp";
+
+type Status = "idle" | "submitting" | "success" | "error";
 
 export function Contact() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+        return;
+      }
+
+      const payload = await response.json().catch(() => null);
+      const message =
+        payload?.errors?.map((e: { message: string }) => e.message).join(", ") ??
+        "Something went wrong. Please try again.";
+      setStatus("error");
+      setErrorMessage(message);
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please try again.");
+    }
+  }
+
   return (
     <section id="contact" className="mx-auto max-w-5xl px-6 py-20">
       <h2 className="prompt text-2xl font-bold" style={{ color: "var(--text)" }}>
@@ -34,11 +75,7 @@ export function Contact() {
         </a>
       </div>
 
-      <form
-        action={`https://formspree.io/f/${FORMSPREE_ID}`}
-        method="POST"
-        className="mt-8 grid max-w-xl gap-4"
-      >
+      <form onSubmit={handleSubmit} className="mt-8 grid max-w-xl gap-4">
         <input
           type="text"
           name="name"
@@ -65,11 +102,23 @@ export function Contact() {
         />
         <button
           type="submit"
-          className="justify-self-start rounded px-5 py-2 text-sm font-medium"
+          disabled={status === "submitting"}
+          className="justify-self-start rounded px-5 py-2 text-sm font-medium disabled:opacity-60"
           style={{ background: "var(--accent)", color: "#04120a" }}
         >
-          Send message
+          {status === "submitting" ? "Sending..." : "Send message"}
         </button>
+
+        {status === "success" && (
+          <p className="text-sm" style={{ color: "var(--accent)" }}>
+            Thanks — I&apos;ll get back to you soon.
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-sm" style={{ color: "#ff6b6b" }}>
+            {errorMessage}
+          </p>
+        )}
       </form>
     </section>
   );
